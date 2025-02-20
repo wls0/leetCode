@@ -20,7 +20,7 @@ function merge(nums1: number[], m: number, nums2: number[], n: number) {
 		}
 	});
 
-    console.log(data)
+
     nums1.splice(0, nums1.length);
     for(const c of data){
         nums1.push(c)
