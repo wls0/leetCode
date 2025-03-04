@@ -1,7 +1,4 @@
 function twoSum(nums: number[], target: number): number[] {
-
-    //target에서  - 하고 -한 값을 뺸 나머지를 돌려본다 그리고 0이 되면 출력
-
     let index = 0;
     
     for(const a of nums){
