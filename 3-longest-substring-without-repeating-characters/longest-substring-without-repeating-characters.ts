@@ -1,34 +1,22 @@
-function lengthOfLongestSubstring(strings: string): number {
-const result = [];
+function lengthOfLongestSubstring(s: string): number {
+const maps = new Map<string, number>()
+
 let index = 0
+let maxLength = 0
+let start = 0
 
-if(strings.length <= 1){
-    return strings.length
-}
-
-for(const a of strings){
-    const set = new Set()
-    let count:number = 0;
-
-    for(let b = index; b < strings.length; b++){
-        const string = strings[b];
-        if(set.has(string)){
-            result.push(count)
-            break;
-        }else{
-            set.add(string)
-            count += 1
-            
-            if(count === strings.length - index){
-                result.push(count)
-                break;
-            }
-        }    
+for(const a of s){
+    if(maps.has(a)){
+        console.log(maps.get(a), start, a)
+        start = Math.max(start, maps.get(a) + 1);
     }
 
-    index ++
-}
+    maps.set(a, index);
 
-const max = Math.max(...result)
-return max
+    maxLength = Math.max(maxLength, index - start +1);
+
+    index ++    
+}
+return maxLength
+
 };
